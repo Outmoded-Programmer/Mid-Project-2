@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace Mid_Project_2
 {
@@ -46,6 +47,8 @@ namespace Mid_Project_2
                         Console.Write("Enter New Contact: ");
                         long contact = Convert.ToInt64(Console.ReadLine());
                         admin.UpdateStudent(id, contact, email);
+                        Console.WriteLine($"Student: \n ID:{id} \n updated email:  {email} updated Contact: {contact}");
+
                         break;
                     case 4:
                         admin.DisplayStudent();

@@ -9,7 +9,7 @@ namespace Mid_Project_2
 {
     class StaffManager : Staff
     {
-        public List<Staff> StaffList { get; private set; }  // ✅ Ensure it's private
+        public List<Staff> StaffList { get;  set; }  // ✅ Ensure it's private
         public string Password { get; private set; }
 
         public StaffManager(int id, string name, string email, long contact, string password)
@@ -39,7 +39,11 @@ namespace Mid_Project_2
 
             StaffList.Add(staff);
             Console.WriteLine($"{staff.Name} ({staff.Role}) has been successfully added.");
+
+            // ✅ Print staff count to check if it's increasing
+            Console.WriteLine($"DEBUG: Total Staff Count: {StaffList.Count}");
         }
+
 
         public void RemoveStaff(int removeId)
         {
@@ -53,6 +57,11 @@ namespace Mid_Project_2
             {
                 Console.WriteLine("No staff member found by this ID.");
             }
+        }
+
+        public List<Staff> GetStaffList()
+        {
+            return StaffList;
         }
 
         public void ShowAllStaff()
@@ -73,15 +82,19 @@ namespace Mid_Project_2
 
         public Staff FindById(int id)
         {
+
             foreach (Staff staff in StaffList)
             {
+                Console.WriteLine($"DEBUG: Checking Staff ID: {staff.Id}");
                 if (staff.Id == id)
                 {
+                    Console.WriteLine("DEBUG: Staff Found!");
                     return staff;
                 }
             }
             return null;
         }
+
     }
 
 }

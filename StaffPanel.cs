@@ -9,42 +9,42 @@ namespace Mid_Project_2
 {
     class StaffPanel
     {
-        private List<Staff> staffMembers;
+            private List<Staff> staffMembers;
 
-        public StaffPanel(List<Staff> staffMembers)
-        {
-            this.staffMembers = staffMembers;
-        }
-
-        public void AccessPanel()
-        {
-            Console.Write("Enter Staff ID: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-
-            Staff foundStaff = null;
-
-            foreach (Staff staff in staffMembers)
+            public StaffPanel(List<Staff> staffMembers)
             {
-                if (staff.Id == id)
+                this.staffMembers = staffMembers;
+            }
+
+            public void AccessPanel()
+            {
+                Console.Write("Enter Staff ID: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+
+                Staff foundStaff = null;
+
+                foreach (Staff staff in staffMembers)
                 {
-                    foundStaff = staff;
-                    break;
+                    if (staff.Id == id)
+                    {
+                        foundStaff = staff;
+                        break;
+                    }
                 }
-            }
 
-            if (foundStaff == null)
-            {
-                Console.WriteLine("Staff member not found.");
-                return;
-            }
+                if (foundStaff == null)
+                {
+                    Console.WriteLine("Staff member not found.");
+                    return;
+                }
 
-            Console.WriteLine($"Welcome {foundStaff.Name}, your role: {foundStaff.Role}");
-            foundStaff.ShowDuties();
+                Console.WriteLine($"Welcome {foundStaff.Name}, your role: {foundStaff.Role}");
+                foundStaff.ShowDuties();
 
-            if (foundStaff is IStaffDuties staffActions)
-            {
-                staffActions.PerformDuties();
+                if (foundStaff is IStaffDuties staffActions)
+                {
+                    staffActions.PerformDuties();
+                }
             }
         }
     }
-}

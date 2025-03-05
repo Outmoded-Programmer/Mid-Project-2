@@ -8,7 +8,7 @@ namespace Mid_Project_2
 {
     class StaffManagerPanel
     {
-        private StaffManager staffManager;  // ✅ Use staffManager's list directly
+        private StaffManager staffManager;  
 
         public StaffManagerPanel(StaffManager manager)
         {
@@ -42,7 +42,8 @@ namespace Mid_Project_2
                         Console.Write("Enter Staff ID: ");
                         int id = Convert.ToInt32(Console.ReadLine());
 
-                        // ✅ Check if ID already exists
+                        
+
                         if (staffManager.FindById(id) != null)
                         {
                             Console.WriteLine("Error: Staff ID already exists. Choose a unique ID.");
@@ -78,7 +79,7 @@ namespace Mid_Project_2
 
                         if (newStaff != null)
                         {
-                            staffManager.AddStaff(newStaff);  // ✅ Add to staffManager's list
+                            staffManager.AddStaff(newStaff);  
                         }
                         break;
 
@@ -89,7 +90,7 @@ namespace Mid_Project_2
                         break;
 
                     case 3:
-                        staffManager.ShowAllStaff(); // ✅ Ensures it displays the correct list
+                        staffManager.ShowAllStaff(); 
                         break;
 
                     case 4:
