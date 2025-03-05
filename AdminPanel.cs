@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mid_Project_2
 {
     class AdminPanel
     {
-        Admin admin = new Admin(1, "Taha", 03259881310, "taha@gmail.com", "admin123");
+        private List<Student> students;
+        private Admin admin;
+
+        public AdminPanel(List<Student> students)
+        {
+            this.students = students;
+            admin = new Admin(1, "Taha", 03259881310, "taha@gmail.com", "admin123");
+            admin.students = this.students;
+        }
+
         public void Panel(string password)
         {
             if (admin.Password != password)
@@ -21,7 +27,7 @@ namespace Mid_Project_2
 
             while (true)
             {
-                Console.WriteLine("\nChoose Action: \n 1. Add Student \n 2. Remove Student \n 3. Update Student \n 4. View Students \n 5. View Rooms \n 6. View Complaints \n 7. Exit Admin Panel");
+                Console.WriteLine("\nChoose Action: \n1. Add Student \n2. Remove Student \n3. Update Student \n4. View Students \n5. View Rooms \n6. View Complaints \n7. Exit Admin Panel");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
                 switch (choice)
@@ -33,13 +39,13 @@ namespace Mid_Project_2
                         admin.RemoveStudent();
                         break;
                     case 3:
-                        Console.Write("\n Enter id of the student to update: ");
+                        Console.Write("\nEnter ID of the student to update: ");
                         int id = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("\n Enter New Email:");
+                        Console.Write("Enter New Email: ");
                         string email = Console.ReadLine();
-                        Console.Write("Enter New Contact:");
+                        Console.Write("Enter New Contact: ");
                         long contact = Convert.ToInt64(Console.ReadLine());
-                        admin.UpdateStudent(id, contact , email);
+                        admin.UpdateStudent(id, contact, email);
                         break;
                     case 4:
                         admin.DisplayStudent();
@@ -60,4 +66,5 @@ namespace Mid_Project_2
             }
         }
     }
+
 }

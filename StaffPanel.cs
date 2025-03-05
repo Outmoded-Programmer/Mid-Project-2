@@ -9,7 +9,6 @@ namespace Mid_Project_2
 {
     class StaffPanel
     {
-
         private List<Staff> staffMembers;
 
         public StaffPanel(List<Staff> staffMembers)
@@ -23,11 +22,12 @@ namespace Mid_Project_2
             int id = Convert.ToInt32(Console.ReadLine());
 
             Staff foundStaff = null;
-            for (int i = 0; i < staffMembers.Count; i++)
+
+            foreach (Staff staff in staffMembers)
             {
-                if (staffMembers[i].Id == id)
+                if (staff.Id == id)
                 {
-                    foundStaff = staffMembers[i];
+                    foundStaff = staff;
                     break;
                 }
             }
@@ -38,7 +38,7 @@ namespace Mid_Project_2
                 return;
             }
 
-            Console.WriteLine("Welcome " + foundStaff.Name + ", your role: " + foundStaff.Role);
+            Console.WriteLine($"Welcome {foundStaff.Name}, your role: {foundStaff.Role}");
             foundStaff.ShowDuties();
 
             if (foundStaff is IStaffDuties staffActions)
@@ -48,7 +48,3 @@ namespace Mid_Project_2
         }
     }
 }
-
-
-
-

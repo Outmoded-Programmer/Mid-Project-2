@@ -170,7 +170,8 @@ namespace Mid_Project_2
                 }
                 if (!hasComplaints)
                 {
-                    Console.WriteLine("\nThere are no complaints");
+
+                    Console.WriteLine($"\n Student ID: {student.Id}, Name: {student.Name}There are no complaints");
 
                 }
             }

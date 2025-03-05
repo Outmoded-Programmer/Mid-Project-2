@@ -8,7 +8,6 @@ namespace Mid_Project_2
 {
     class StudentPanel
     {
-
         private List<Student> students;
 
         public StudentPanel(List<Student> students)
@@ -18,7 +17,7 @@ namespace Mid_Project_2
 
         public void Panel()
         {
-            Console.Write("Student Panel: \n Enter your student ID: ");
+            Console.Write("Student Panel: \nEnter your student ID: ");
             int id = Convert.ToInt32(Console.ReadLine());
 
             Student foundStudent = null;
@@ -33,14 +32,14 @@ namespace Mid_Project_2
 
             if (foundStudent == null)
             {
-                Console.WriteLine("No student with this ID.");
+                Console.WriteLine("No student with this ID found.");
                 return;
             }
 
             Console.WriteLine($"Welcome! {foundStudent.Name}");
             while (true)
             {
-                Console.WriteLine("\nChoose Action: \n 1. Pay Fee \n 2. Show Details \n 3. Submit Complaint  \n 4. Exit Student Panel");
+                Console.WriteLine("\nChoose Action: \n1. Pay Fee \n2. Show Details \n3. Submit Complaint  \n4. Exit Student Panel");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
                 switch (choice)
@@ -64,6 +63,7 @@ namespace Mid_Project_2
             }
         }
     }
+
 
 }
 

@@ -11,18 +11,13 @@ namespace Mid_Project_2
     {
         static void Main(string[] args)
         {
-
             List<Student> students = new List<Student>();
             List<Staff> staffList = new List<Staff>();
 
-            Admin admin = new Admin(1, "Taha", 03259881310, "taha@gmail.com", "admin123");
-            AdminPanel adminPanel = new AdminPanel();
-            admin.students = students;
-
+            AdminPanel adminPanel = new AdminPanel(students);
             StaffManager staffManager = new StaffManager(1, "Ali", "shahzad@gmail.com", 03340002348, "manager123");
-            StaffManagerPanel staffManagerPanel = new StaffManagerPanel();
+            StaffManagerPanel staffManagerPanel = new StaffManagerPanel(staffManager);
             StaffPanel staffPanel = new StaffPanel(staffList);
-
             StudentPanel studentPanel = new StudentPanel(students);
 
             Console.WriteLine("Hostel Management System: ");
